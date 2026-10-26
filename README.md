@@ -3,6 +3,7 @@
 > **Round 2 Submission (The Build)**  
 > **Problem Statement by Inkloom AI** • **Organised by We Code Coders**  
 > **Team:** GIRL CODER (Solo Developer: Varshini Uppada)  
+> **Live Project Link:** [https://fluffy-seahorse-1930f5.netlify.app](https://fluffy-seahorse-1930f5.netlify.app)  
 > **Repository:** [https://github.com/varshu2024/brand-guard](https://github.com/varshu2024/brand-guard)  
 > **Submission Document:** [`BrandGuard_Round_2_Submission.pdf`](./BrandGuard_Round_2_Submission.pdf)  
 

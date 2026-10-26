@@ -134,7 +134,7 @@ def build_pdf():
     meta_data = [
         [Paragraph("<b>Problem Statement:</b> Inkloom AI", meta_style), Paragraph("<b>Event:</b> Organised by We Code Coders", meta_style)],
         [Paragraph("<b>Team Name:</b> GIRL CODER (Solo Developer)", meta_style), Paragraph("<b>Participant:</b> Varshini Uppada (B.Tech ECE, 2027)", meta_style)],
-        [Paragraph("<b>Project Link:</b> http://localhost:5173", meta_style), Paragraph("<b>GitHub:</b> github.com/varshu2024/brand-guard", meta_style)],
+        [Paragraph("<b>Live Project Link:</b> https://fluffy-seahorse-1930f5.netlify.app", meta_style), Paragraph("<b>GitHub:</b> github.com/varshu2024/brand-guard", meta_style)],
         [Paragraph("<b>Backend API:</b> http://127.0.0.1:8000/docs", meta_style), Paragraph("<b>Contact:</b> varshuppada@gmail.com", meta_style)]
     ]
     t_meta = Table(meta_data, colWidths=[250, 254])
