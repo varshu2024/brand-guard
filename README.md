@@ -3,11 +3,21 @@
 > **Round 2 Submission (The Build)**  
 > **Problem Statement by Inkloom AI** • **Organised by We Code Coders**  
 > **Team:** GIRL CODER (Solo Developer: Varshini Uppada)  
+> **Repository:** [https://github.com/varshu2024/brand-guard](https://github.com/varshu2024/brand-guard)  
+> **Submission Document:** [`BrandGuard_Round_2_Submission.pdf`](./BrandGuard_Round_2_Submission.pdf)  
 
 ---
 
 ## 🛡️ What is BrandGuard?
 **BrandGuard** is an automated pre-publish brand governance platform that intercepts content before publication and checks it against approved guidelines, verified facts, and design tokens.
+
+### 🎨 Obsidian Luxe UI/UX Architecture
+BrandGuard features a custom **Obsidian Luxe** enterprise design system:
+- **Surface Depth Hierarchy**: Near-black background (`#0B0C0F`) with subtle bronze corner radial gradients, deep charcoal content editor (`#111318`), telemetry analytics panels (`#171A20`), and refined borders (`#34302A`).
+- **Interactive In-Draft Risk Inspector**: Flagged phrases are highlighted with syntax-style badges directly within the draft. Clicking any phrase reveals an in-context violation inspector card displaying policy explanations, official ledger source citations, and 1-click AI fixes.
+- **Guided Next-Action Workflow**: Direct guided stepper: `HIGH RISK (22/100) ➔ 9 ISSUES DETECTED ➔ REVIEW SUGGESTED FIXES (DIFF) ➔ RECHECK COMPLIANCE`.
+- **First-Class Before & After Diff Engine**: Side-by-side split comparison calculating real-time projected impact (`Score 22 ➔ 97/100 (+75 pts)`) with instant 1-click fix acceptance and undo support.
+- **Clickable Risk Breakdown**: Interactive category bars for Claims, Voice, Policy, and Freshness with active selection borders that dynamically filter detected issues.
 
 Unlike grammar checkers or generic tone checkers, BrandGuard addresses the four real-world failure types defined by Inkloom AI:
 1. **Contradicted Claims:** Detects false customer traction, unapproved SLAs, and unbacked certifications.
