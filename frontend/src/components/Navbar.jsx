@@ -5,13 +5,28 @@ import {
 } from "lucide-react";
 
 export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
-  const navItems = [
-    { id: "studio", label: "Content Editor", icon: Sparkles },
-    { id: "visual", label: "Visual Assets", icon: ImageIcon },
-    { id: "knowledge", label: "Claim Ledger", icon: BookOpen },
-    { id: "workflow", label: "Review Queue", icon: Layers, badge: "3" },
-    { id: "analytics", label: "Governance Drift", icon: BarChart3 },
-    { id: "api", label: "AI Guardrail API", icon: Terminal }
+  const navGroups = [
+    {
+      group: "Studio",
+      items: [
+        { id: "studio", label: "Content Editor", icon: Sparkles },
+        { id: "visual", label: "Visual Assets", icon: ImageIcon }
+      ]
+    },
+    {
+      group: "Governance",
+      items: [
+        { id: "knowledge", label: "Claim Ledger", icon: BookOpen },
+        { id: "workflow", label: "Review Queue", icon: Layers, badge: "3" }
+      ]
+    },
+    {
+      group: "Intelligence",
+      items: [
+        { id: "analytics", label: "Governance Drift", icon: BarChart3 },
+        { id: "api", label: "AI Guardrail API", icon: Terminal }
+      ]
+    }
   ];
 
   return (
@@ -19,9 +34,9 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
       position: "sticky",
       top: 0,
       zIndex: 50,
-      background: "rgba(16, 19, 25, 0.94)",
+      background: "rgba(11, 12, 15, 0.94)",
       backdropFilter: "blur(20px)",
-      borderBottom: "1px solid var(--border-bronze)",
+      borderBottom: "1px solid var(--border-main)",
       padding: "10px 24px"
     }}>
       <div style={{
@@ -39,12 +54,12 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
             width: 38,
             height: 38,
             borderRadius: 10,
-            background: "linear-gradient(135deg, #161A22 0%, #101319 100%)",
+            background: "linear-gradient(135deg, #171A20 0%, #111318 100%)",
             border: "1.5px solid var(--accent-gold)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            boxShadow: "0 0 12px rgba(197, 160, 89, 0.25)"
+            boxShadow: "0 0 12px rgba(214, 179, 106, 0.25)"
           }}>
             <Shield size={20} color="var(--accent-gold)" strokeWidth={2.2} />
           </div>
@@ -55,7 +70,7 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
                 fontFamily: "var(--font-heading)",
                 fontSize: "1.25rem",
                 fontWeight: 700,
-                color: "var(--text-primary)",
+                color: "var(--text-main)",
                 letterSpacing: "-0.02em"
               }}>
                 BrandGuard
@@ -64,7 +79,7 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
                 Enterprise
               </span>
             </div>
-            <div style={{ fontSize: "0.72rem", color: "var(--text-silver)", display: "flex", gap: 6, alignItems: "center" }}>
+            <div style={{ fontSize: "0.72rem", color: "var(--text-secondary)", display: "flex", gap: 6, alignItems: "center" }}>
               <span>Autonomous Pre-Publish Governance</span>
               <span>•</span>
               <span style={{ color: "var(--accent-gold-light)" }}>NovaPulse Cloud Org</span>
@@ -72,57 +87,76 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
           </div>
         </div>
 
-        {/* Workspace Navigation Tabs (Active = Neon Lime with dark text) */}
+        {/* Logically Grouped Workspace Navigation */}
         <nav style={{
           display: "flex",
           alignItems: "center",
-          gap: 4,
-          background: "rgba(10, 11, 14, 0.75)",
-          padding: 3,
+          gap: 10,
+          background: "rgba(17, 19, 24, 0.85)",
+          padding: "4px 8px",
           borderRadius: 8,
-          border: "1px solid var(--border-subtle)"
+          border: "1px solid var(--border-main)"
         }}>
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  padding: "6px 13px",
-                  borderRadius: 6,
-                  border: "none",
-                  cursor: "pointer",
-                  fontSize: "0.82rem",
-                  fontFamily: "var(--font-sans)",
-                  fontWeight: isActive ? 700 : 500,
-                  color: isActive ? "var(--accent-lime-dark)" : "var(--text-silver)",
-                  background: isActive ? "var(--accent-lime)" : "transparent",
-                  boxShadow: isActive ? "0 2px 8px rgba(196, 248, 42, 0.25)" : "none",
-                  transition: "all 0.15s ease"
-                }}
-              >
-                <Icon size={15} color={isActive ? "var(--accent-lime-dark)" : "var(--accent-gold)"} />
-                <span>{item.label}</span>
-                {item.badge && (
-                  <span style={{
-                    fontSize: "0.62rem",
-                    padding: "1px 5px",
-                    borderRadius: 4,
-                    background: isActive ? "rgba(0,0,0,0.2)" : "rgba(197, 160, 89, 0.2)",
-                    color: isActive ? "#000" : "var(--accent-gold-light)",
-                    fontWeight: 700
-                  }}>
-                    {item.badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+          {navGroups.map((group, gIdx) => (
+            <React.Fragment key={group.group}>
+              {gIdx > 0 && (
+                <div style={{ width: 1, height: 18, background: "var(--border-main)" }} />
+              )}
+              <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                <span style={{
+                  fontSize: "0.65rem",
+                  fontWeight: 700,
+                  color: "var(--text-muted)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                  padding: "0 4px"
+                }}>
+                  {group.group}
+                </span>
+                {group.items.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeTab === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => setActiveTab(item.id)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 5,
+                        padding: "5px 10px",
+                        borderRadius: 6,
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: "0.8rem",
+                        fontFamily: "var(--font-sans)",
+                        fontWeight: isActive ? 700 : 500,
+                        color: isActive ? "var(--accent-lime-dark)" : "var(--text-secondary)",
+                        background: isActive ? "var(--accent-lime)" : "transparent",
+                        boxShadow: isActive ? "0 2px 8px rgba(198, 255, 61, 0.28)" : "none",
+                        transition: "all 0.15s ease"
+                      }}
+                    >
+                      <Icon size={14} color={isActive ? "var(--accent-lime-dark)" : "var(--accent-gold)"} />
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span style={{
+                          fontSize: "0.62rem",
+                          padding: "1px 5px",
+                          borderRadius: 4,
+                          background: isActive ? "rgba(0,0,0,0.2)" : "rgba(214, 179, 106, 0.2)",
+                          color: isActive ? "#000" : "var(--accent-gold-light)",
+                          fontWeight: 700
+                        }}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </React.Fragment>
+          ))}
         </nav>
 
         {/* Enterprise Actions & Profile Area */}
@@ -149,20 +183,20 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
             alignItems: "center",
             gap: 8,
             paddingLeft: 8,
-            borderLeft: "1px solid var(--border-bronze)"
+            borderLeft: "1px solid var(--border-main)"
           }}>
             <button
               style={{
                 width: 32,
                 height: 32,
                 borderRadius: 6,
-                background: "rgba(22, 26, 34, 0.6)",
-                border: "1px solid var(--border-bronze)",
+                background: "rgba(23, 26, 32, 0.8)",
+                border: "1px solid var(--border-main)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-                color: "var(--text-silver)"
+                color: "var(--text-secondary)"
               }}
               title="Notifications: All systems operational"
             >
@@ -173,8 +207,8 @@ export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
               width: 32,
               height: 32,
               borderRadius: 6,
-              background: "rgba(197, 160, 89, 0.15)",
-              border: "1px solid var(--border-bronze)",
+              background: "rgba(214, 179, 106, 0.15)",
+              border: "1px solid var(--border-main)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

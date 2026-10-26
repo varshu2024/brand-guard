@@ -1,43 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ==========================================================================
-   OBSIDIAN LUXE DESIGN SYSTEM
-   70% Obsidian & Graphite | 20% Warm White & Silver | 10% Champagne Gold & Neon Lime
+   BRANDGUARD FINAL DESIGN SYSTEM (OBSIDIAN & BRONZE LUXE)
+   Main: #0B0C0F | Editor: #111318 | Analytics: #171A20 | Borders: #34302A
+   Lime: #C6FF3D | Gold: #D6B36A | Critical: #FF4566 | Warnings: #FFBF47
    ========================================================================== */
 
 :root {
   /* Surfaces */
-  --bg-obsidian: #0A0B0E;
-  --bg-surface: #101319;
-  --bg-graphite: #161A22;
-  --bg-graphite-hover: #1E232E;
-  --bg-card: rgba(18, 22, 30, 0.75);
+  --bg-main: #0B0C0F;
+  --bg-editor: #111318;
+  --bg-analytics: #171A20;
+  --bg-subtle: #1D2128;
+  --bg-darker: #07080A;
   
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-bronze: rgba(197, 160, 89, 0.24);
-  --border-bronze-strong: rgba(197, 160, 89, 0.55);
-  --border-lime: rgba(196, 248, 42, 0.4);
-  --border-critical: rgba(244, 63, 94, 0.4);
+  --border-main: #34302A;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-gold: rgba(214, 179, 106, 0.35);
+  --border-lime: rgba(198, 255, 61, 0.4);
+  --border-critical: rgba(255, 69, 102, 0.4);
 
   /* Typography */
-  --text-primary: #F8F9FA;
-  --text-warm: #E2E5EC;
-  --text-silver: #949DAF;
-  --text-muted: #5E697D;
+  --text-main: #F5F5F0;
+  --text-secondary: #969EAC;
+  --text-muted: #5C6473;
+  --text-gold: #D6B36A;
 
   /* Accents */
-  --accent-gold: #C5A059;
-  --accent-gold-light: #DFC07A;
-  --accent-lime: #C4F82A;
-  --accent-lime-hover: #D6FB4F;
-  --accent-lime-dark: #0A0B0E;
+  --accent-lime: #C6FF3D;
+  --accent-lime-hover: #D7FF5E;
+  --accent-lime-dark: #0B0C0F;
+  --accent-gold: #D6B36A;
+  --accent-gold-light: #E8CF96;
 
-  /* Meaningful Status Colors */
-  --status-critical: #F43F5E; /* Coral Red for critical */
-  --status-warning: #F59E0B;  /* Amber for moderate */
-  --status-healthy: #C4F82A;  /* Neon Lime for clean/approved */
-  --status-info: #38BDF8;
+  /* Severity States */
+  --status-critical: #FF4566;
+  --status-warning: #FFBF47;
+  --status-compliant: #C6FF3D;
 
   /* Fonts */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -49,7 +49,13 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --radius-xl: 20px;
+
+  /* Backward-compatible token aliases */
+  --bg-obsidian: var(--bg-main);
+  --bg-graphite: var(--bg-editor);
+  --border-bronze: var(--border-main);
+  --text-primary: var(--text-main);
+  --text-silver: var(--text-secondary);
 }
 
 * {
@@ -59,50 +65,83 @@
 }
 
 body {
-  background-color: var(--bg-obsidian);
-  color: var(--text-warm);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   overflow-x: hidden;
-  /* Deep obsidian with very subtle bronze radial corner gradients and faint security grid */
+  /* Distinctive near-black with subtle bronze corner radial gradients */
   background-image: 
-    radial-gradient(circle at 5% 5%, rgba(197, 160, 89, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 95% 95%, rgba(197, 160, 89, 0.035) 0%, transparent 40%),
-    radial-gradient(circle at 50% 0%, rgba(196, 248, 42, 0.02) 0%, transparent 50%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    radial-gradient(circle at 0% 0%, rgba(214, 179, 106, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(214, 179, 106, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 50% 0%, rgba(198, 255, 61, 0.02) 0%, transparent 50%);
+  background-size: 100% 100%;
   background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
-/* Glass Panels with Bronze Accents */
-.glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-bronze);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.2s ease;
+/* Surface Panels */
+.panel-editor {
+  background: var(--bg-editor);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-.glass-panel:hover {
-  border-color: rgba(197, 160, 89, 0.38);
+.panel-analytics {
+  background: var(--bg-analytics);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .graphite-panel {
-  background: var(--bg-graphite);
-  border: 1px solid var(--border-bronze);
+  background: var(--bg-editor);
+  border: 1px solid var(--border-main);
   border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.category-bar-interactive {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+}
+.category-bar-interactive:hover {
+  background: rgba(214, 179, 106, 0.08) !important;
+  border-color: rgba(214, 179, 106, 0.45) !important;
+  transform: translateY(-1px);
+}
+.category-bar-interactive.active {
+  background: rgba(214, 179, 106, 0.14) !important;
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 0 12px rgba(214, 179, 106, 0.2);
+}
+
+/* Diff View Styles */
+.diff-removed {
+  background: rgba(255, 69, 102, 0.15);
+  color: #FFA3B3;
+  text-decoration: line-through;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border-left: 2px solid var(--status-critical);
+}
+.diff-added {
+  background: rgba(198, 255, 61, 0.15);
+  color: var(--accent-lime);
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border-left: 2px solid var(--accent-lime);
 }
 
 /* Three Consistent Button Styles */
@@ -114,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 16px;
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
@@ -123,39 +162,39 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-/* 1. Primary: Neon lime with dark text */
+/* Primary: Neon Lime with Dark Text */
 .btn-primary, .btn-lime {
   background: var(--accent-lime);
   color: var(--accent-lime-dark);
   font-weight: 700;
-  box-shadow: 0 2px 10px rgba(196, 248, 42, 0.25);
+  box-shadow: 0 2px 10px rgba(198, 255, 61, 0.22);
 }
 .btn-primary:hover, .btn-lime:hover {
   background: var(--accent-lime-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(196, 248, 42, 0.35);
+  box-shadow: 0 4px 14px rgba(198, 255, 61, 0.35);
 }
 
-/* 2. Secondary: Transparent charcoal with bronze border */
+/* Secondary: Transparent Charcoal with Bronze Border */
 .btn-secondary, .btn-bronze {
-  background: rgba(22, 26, 34, 0.8);
-  color: var(--text-warm);
-  border: 1px solid var(--border-bronze);
+  background: rgba(23, 26, 32, 0.8);
+  color: var(--text-main);
+  border: 1px solid var(--border-main);
 }
 .btn-secondary:hover, .btn-bronze:hover {
-  background: rgba(30, 35, 46, 0.95);
+  background: rgba(29, 33, 40, 0.95);
   border-color: var(--accent-gold);
-  color: var(--text-primary);
+  color: #FFFFFF;
 }
 
-/* 3. Destructive: Dark background with coral-red border */
+/* Destructive / Alert */
 .btn-destructive {
-  background: rgba(244, 63, 94, 0.08);
-  color: #FDA4AF;
+  background: rgba(255, 69, 102, 0.1);
+  color: #FFA3B3;
   border: 1px solid var(--border-critical);
 }
 .btn-destructive:hover {
-  background: rgba(244, 63, 94, 0.18);
+  background: rgba(255, 69, 102, 0.2);
   border-color: var(--status-critical);
 }
 
@@ -179,43 +218,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .badge-critical {
-  background: rgba(244, 63, 94, 0.14);
-  color: #FB7185;
-  border: 1px solid rgba(244, 63, 94, 0.35);
+  background: rgba(255, 69, 102, 0.14);
+  color: var(--status-critical);
+  border: 1px solid rgba(255, 69, 102, 0.35);
 }
 
 .badge-warning {
-  background: rgba(245, 158, 11, 0.14);
-  color: #FBBF24;
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: rgba(255, 191, 71, 0.14);
+  color: var(--status-warning);
+  border: 1px solid rgba(255, 191, 71, 0.35);
 }
 
-.badge-healthy {
-  background: rgba(196, 248, 42, 0.12);
-  color: #C4F82A;
-  border: 1px solid rgba(196, 248, 42, 0.35);
+.badge-compliant, .badge-healthy {
+  background: rgba(198, 255, 61, 0.12);
+  color: var(--accent-lime);
+  border: 1px solid rgba(198, 255, 61, 0.35);
 }
 
 .badge-gold {
-  background: rgba(197, 160, 89, 0.15);
-  color: #E6C885;
-  border: 1px solid rgba(197, 160, 89, 0.35);
+  background: rgba(214, 179, 106, 0.15);
+  color: var(--accent-gold-light);
+  border: 1px solid rgba(214, 179, 106, 0.35);
 }
 
 .badge-neutral {
   background: rgba(255, 255, 255, 0.05);
-  color: var(--text-silver);
+  color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
 }
 
-/* Input & Editor Controls */
+/* Inputs & Form Controls */
 .input-text, .select-input, .textarea-input {
   width: 100%;
-  background: #11141B;
-  border: 1px solid var(--border-bronze);
+  background: #0B0C0F;
+  border: 1px solid var(--border-main);
   border-radius: var(--radius-sm);
   padding: 9px 12px;
-  color: var(--text-primary);
+  color: var(--text-main);
   font-family: var(--font-sans);
   font-size: 0.88rem;
   outline: none;
@@ -224,11 +263,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .input-text:focus, .select-input:focus, .textarea-input:focus {
   border-color: var(--accent-gold);
-  box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 0 0 1px rgba(214, 179, 106, 0.3);
 }
 
-/* Pulsing Lime Live Indicator */
-@keyframes limePulse {
+/* Pulsing Lime Dot */
+@keyframes pulseLime {
   0% { transform: scale(0.95); opacity: 0.7; }
   50% { transform: scale(1.15); opacity: 1; }
   100% { transform: scale(0.95); opacity: 0.7; }
@@ -239,9 +278,28 @@ h1, h2, h3, h4, h5, h6 {
   height: 8px;
   border-radius: 50%;
   background: var(--accent-lime);
-  box-shadow: 0 0 8px rgba(196, 248, 42, 0.6);
-  animation: limePulse 2s infinite ease-in-out;
+  box-shadow: 0 0 8px rgba(198, 255, 61, 0.6);
+  animation: pulseLime 2s infinite ease-in-out;
   display: inline-block;
+}
+
+/* Highlighted problematic phrases in editor */
+.phrase-highlight-critical {
+  background: rgba(255, 69, 102, 0.18);
+  border-bottom: 2px solid var(--status-critical);
+  color: #FFA3B3;
+  padding: 1px 3px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.phrase-highlight-warning {
+  background: rgba(255, 191, 71, 0.18);
+  border-bottom: 2px solid var(--status-warning);
+  color: #FFE08F;
+  padding: 1px 3px;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 /* Custom Scrollbars */
@@ -250,10 +308,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-obsidian);
+  background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-  background: #252B38;
+  background: #242933;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
