@@ -6,17 +6,35 @@
 
 import { runClientVerification, DEFAULT_LEDGER_DATA, DEFAULT_VOICE_RULES, DEFAULT_POLICY_RULES } from "./localEngine";
 
-const API_BASE = "http://127.0.0.1:8000/api";
+const API_BASE = (typeof window !== "undefined" && window.location.protocol === "https:")
+  ? (import.meta.env.VITE_API_BASE || "")
+  : "http://127.0.0.1:8000/api";
+
+async function safeFetch(url, options = {}, timeoutMs = 1200) {
+  if (!url) throw new Error("No endpoint configured");
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    clearTimeout(timer);
+    return res;
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
+  }
+}
 
 export async function checkTextContent(text, title = "Draft Content", channel = "Marketing", author = "Creator") {
   try {
-    const res = await fetch(`${API_BASE}/check/text`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, title, channel, author })
-    });
-    if (res.ok) {
-      return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/check/text`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, title, channel, author })
+      });
+      if (res.ok) {
+        return await res.json();
+      }
     }
   } catch (err) {
     console.warn("Backend API unreachable, using client-side governance engine:", err);
@@ -27,9 +45,11 @@ export async function checkTextContent(text, title = "Draft Content", channel = 
 
 export async function checkVisualSample(assetType) {
   try {
-    const res = await fetch(`${API_BASE}/check/sample_image/${assetType}`);
-    if (res.ok) {
-      return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/check/sample_image/${assetType}`);
+      if (res.ok) {
+        return await res.json();
+      }
     }
   } catch (err) {
     console.warn("Backend visual check unreachable, using simulated result:", err);
@@ -96,8 +116,10 @@ export async function checkVisualSample(assetType) {
 
 export async function fetchLedger() {
   try {
-    const res = await fetch(`${API_BASE}/ledger`);
-    if (res.ok) return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/ledger`);
+      if (res.ok) return await res.json();
+    }
   } catch (e) {
     console.warn("Using offline ledger data");
   }
@@ -106,8 +128,10 @@ export async function fetchLedger() {
 
 export async function fetchVoiceRules() {
   try {
-    const res = await fetch(`${API_BASE}/voice_rules`);
-    if (res.ok) return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/voice_rules`);
+      if (res.ok) return await res.json();
+    }
   } catch (e) {
     console.warn("Using offline voice rules");
   }
@@ -116,8 +140,10 @@ export async function fetchVoiceRules() {
 
 export async function fetchReviews() {
   try {
-    const res = await fetch(`${API_BASE}/reviews`);
-    if (res.ok) return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/reviews`);
+      if (res.ok) return await res.json();
+    }
   } catch (e) {
     console.warn("Using offline reviews");
   }
@@ -153,20 +179,24 @@ export async function fetchReviews() {
 
 export async function submitReviewAction(id, action, reviewer, notes) {
   try {
-    const res = await fetch(`${API_BASE}/reviews/${id}/action`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action, reviewer, notes })
-    });
-    if (res.ok) return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/reviews/${id}/action`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action, reviewer, notes })
+      });
+      if (res.ok) return await res.json();
+    }
   } catch (e) {}
   return { success: true };
 }
 
 export async function fetchAnalytics() {
   try {
-    const res = await fetch(`${API_BASE}/analytics`);
-    if (res.ok) return await res.json();
+    if (API_BASE) {
+      const res = await safeFetch(`${API_BASE}/analytics`);
+      if (res.ok) return await res.json();
+    }
   } catch (e) {}
   return {
     total_audited_content: 312,
