@@ -1,10 +1,10 @@
 import React from "react";
 import { 
-  Shield, Sparkles, BookOpen, Layers, BarChart3, Terminal, Award, 
-  RefreshCw, Image as ImageIcon, Bell, User
+  Shield, Sparkles, BookOpen, Layers, BarChart3, Terminal, 
+  RefreshCw, Image as ImageIcon, Bell, User, ShieldCheck
 } from "lucide-react";
 
-export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onResetDemo }) {
+export default function Navbar({ activeTab, setActiveTab, onResetDemo }) {
   const navItems = [
     { id: "studio", label: "Content Editor", icon: Sparkles },
     { id: "visual", label: "Visual Assets", icon: ImageIcon },
@@ -19,8 +19,8 @@ export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onRe
       position: "sticky",
       top: 0,
       zIndex: 50,
-      background: "rgba(16, 19, 25, 0.92)",
-      backdropFilter: "blur(18px)",
+      background: "rgba(16, 19, 25, 0.94)",
+      backdropFilter: "blur(20px)",
       borderBottom: "1px solid var(--border-bronze)",
       padding: "10px 24px"
     }}>
@@ -61,13 +61,13 @@ export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onRe
                 BrandGuard
               </span>
               <span className="badge badge-gold" style={{ fontSize: "0.65rem", padding: "1px 6px" }}>
-                Obsidian v2.0
+                Enterprise
               </span>
             </div>
             <div style={{ fontSize: "0.72rem", color: "var(--text-silver)", display: "flex", gap: 6, alignItems: "center" }}>
-              <span>Team: <strong style={{ color: "var(--accent-gold-light)" }}>GIRL CODER</strong></span>
+              <span>Autonomous Pre-Publish Governance</span>
               <span>•</span>
-              <span>Varshini Uppada</span>
+              <span style={{ color: "var(--accent-gold-light)" }}>NovaPulse Cloud Org</span>
             </div>
           </div>
         </div>
@@ -125,25 +125,22 @@ export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onRe
           })}
         </nav>
 
-        {/* Actions & Profile Area */}
+        {/* Enterprise Actions & Profile Area */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          {/* Active Status Badge */}
+          <div className="badge badge-healthy" style={{ padding: "5px 9px", fontSize: "0.72rem", gap: 5 }}>
+            <ShieldCheck size={13} />
+            <span>Active Guardrails</span>
+          </div>
+
           <button
             onClick={onResetDemo}
             className="btn btn-secondary btn-sm"
-            title="Reset to default NovaPulse brand pack"
+            title="Re-synchronize with official NovaPulse brand guidelines"
             style={{ fontSize: "0.78rem" }}
           >
             <RefreshCw size={13} color="var(--accent-gold)" />
-            <span>Reset Demo</span>
-          </button>
-
-          <button
-            onClick={onOpenJudgeModal}
-            className="btn btn-primary btn-sm"
-            style={{ fontSize: "0.78rem" }}
-          >
-            <Award size={14} />
-            <span>Judge Guide & 3 Improvements</span>
+            <span>Sync Brand Pack</span>
           </button>
 
           {/* Profile & Notifications */}
@@ -167,7 +164,7 @@ export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onRe
                 cursor: "pointer",
                 color: "var(--text-silver)"
               }}
-              title="Notifications: All clear"
+              title="Notifications: All systems operational"
             >
               <Bell size={15} />
             </button>
@@ -184,7 +181,7 @@ export default function Navbar({ activeTab, setActiveTab, onOpenJudgeModal, onRe
               fontSize: "0.78rem",
               fontWeight: 700,
               color: "var(--accent-gold-light)"
-            }} title="Varshini Uppada (GIRL CODER)">
+            }} title="Varshini Uppada (Lead Brand Architect)">
               VU
             </div>
           </div>

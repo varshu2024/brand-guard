@@ -6,11 +6,9 @@ import KnowledgeBase from "./components/KnowledgeBase";
 import ReviewQueue from "./components/ReviewQueue";
 import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import ApiPlayground from "./components/ApiPlayground";
-import JudgeModal from "./components/JudgeModal";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("studio");
-  const [isJudgeModalOpen, setIsJudgeModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
 
   const showToast = (msg) => {
@@ -24,7 +22,7 @@ export default function App() {
     } catch (e) {
       console.warn("Backend reset skipped in offline mode");
     }
-    showToast("Demo Brand Pack (NovaPulse Cloud) successfully re-synchronized!");
+    showToast("Brand Guidelines & Claim Ledger re-synchronized!");
   };
 
   const handleSubmitToQueue = (draftData) => {
@@ -37,7 +35,6 @@ export default function App() {
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        onOpenJudgeModal={() => setIsJudgeModalOpen(true)}
         onResetDemo={handleResetDemo}
       />
 
@@ -50,12 +47,6 @@ export default function App() {
         {activeTab === "analytics" && <AnalyticsDashboard />}
         {activeTab === "api" && <ApiPlayground />}
       </main>
-
-      {/* Judge's Walkthrough Modal */}
-      <JudgeModal
-        isOpen={isJudgeModalOpen}
-        onClose={() => setIsJudgeModalOpen(false)}
-      />
 
       {/* Toast Notification */}
       {toastMessage && (
@@ -78,7 +69,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Footer */}
+      {/* Enterprise Footer */}
       <footer style={{
         borderTop: "1px solid var(--border-bronze)",
         background: "rgba(10, 11, 14, 0.95)",
@@ -89,13 +80,13 @@ export default function App() {
       }}>
         <div style={{ maxWidth: 1480, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <div>
-            <strong style={{ color: "var(--text-silver)" }}>BrandGuard</strong> — Intelligent Pre-Publish Brand Governance & Verification Trust Layer.
+            <strong style={{ color: "var(--text-silver)" }}>BrandGuard AI Governance</strong> — Intelligent Pre-Publish Brand Verification & Factual Grounding Platform.
           </div>
           <div>
-            Built for Problem Statement by <strong style={{ color: "var(--accent-gold-light)" }}>Inkloom AI</strong> • Organised by <strong>We Code Coders</strong>
+            Protected Organization: <strong style={{ color: "var(--accent-gold-light)" }}>NovaPulse Cloud Enterprise</strong> • Active Claim Ledger v2.4
           </div>
           <div>
-            Developer: <strong style={{ color: "var(--text-warm)" }}>Varshini Uppada</strong> (Team GIRL CODER)
+            <span>© 2026 BrandGuard. All rights reserved.</span>
           </div>
         </div>
       </footer>
