@@ -27,13 +27,16 @@ def rgb_to_hex(r: int, g: int, b: int) -> str:
 
 def color_distance(c1: Tuple[int, int, int], c2: Tuple[int, int, int]) -> float:
     """Euclidean distance in RGB color space normalized to 0-100 scale."""
-    rmean = (c1[0] + c2[0]) / 2
+    rmean = (c1[0] + c2[0]) / 2.0
     r = c1[0] - c2[0]
     g = c1[1] - c2[1]
     b = c1[2] - c2[2]
-    # Redmean formula for human eye perception
-    dist = math.sqrt((((512 + rmean) * r * r) >> 8) + 4 * g * g + (((767 - rmean) * b * b) >> 8))
-    return round((dist / 765.0) * 100, 2)
+    # Redmean formula with standard division
+    weight_r = 2.0 + rmean / 256.0
+    weight_g = 4.0
+    weight_b = 2.0 + (255.0 - rmean) / 256.0
+    dist = math.sqrt(weight_r * r * r + weight_g * g * g + weight_b * b * b)
+    return round((dist / 765.0) * 100.0, 2)
 
 
 def relative_luminance(rgb: Tuple[int, int, int]) -> float:

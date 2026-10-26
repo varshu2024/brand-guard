@@ -276,6 +276,104 @@
   ],
   "audit_log": [
     {
+      "id": "AUD-021",
+      "timestamp": "2026-10-26 11:25:04",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-020",
+      "timestamp": "2026-10-26 11:24:42",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 94/100 with 2 issues."
+    },
+    {
+      "id": "AUD-019",
+      "timestamp": "2026-10-26 11:23:49",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-018",
+      "timestamp": "2026-10-26 11:23:49",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-017",
+      "timestamp": "2026-10-26 11:23:18",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-016",
+      "timestamp": "2026-10-26 11:23:18",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-015",
+      "timestamp": "2026-10-26 11:20:09",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-014",
+      "timestamp": "2026-10-26 11:20:09",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-013",
+      "timestamp": "2026-10-26 11:20:01",
+      "user": "API:LangChain Content Generator",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'AI-Generated Social Ad' (Automated Content Pipeline): Score 32/100 with 8 issues."
+    },
+    {
+      "id": "AUD-012",
+      "timestamp": "2026-10-26 11:19:45",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-011",
+      "timestamp": "2026-10-26 11:19:45",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 22/100 with 9 issues."
+    },
+    {
+      "id": "AUD-010",
+      "timestamp": "2026-10-26 11:17:41",
+      "user": "API:Creator",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Untitled Content' (Marketing & Social): Score 98/100 with 1 issues."
+    },
+    {
+      "id": "AUD-009",
+      "timestamp": "2026-10-26 11:14:38",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 50/100 with 9 issues."
+    },
+    {
+      "id": "AUD-008",
+      "timestamp": "2026-10-26 11:14:38",
+      "user": "API:AI Marketing Agent (GPT-4o)",
+      "action": "CONTENT_VERIFICATION",
+      "details": "Analyzed 'Q4 Social Campaign - AI Generated Copy' (LinkedIn / X Ads): Score 50/100 with 9 issues."
+    },
+    {
       "id": "AUD-007",
       "timestamp": "2026-10-26 11:06:21",
       "user": "API:LangChain Content Generator",

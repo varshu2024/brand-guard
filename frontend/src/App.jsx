@@ -32,7 +32,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--bg-obsidian)" }}>
       {/* Top Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -42,7 +42,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, paddingBottom: 60 }}>
+      <main style={{ flex: 1, paddingBottom: 50 }}>
         {activeTab === "studio" && <ContentStudio onSubmitToQueue={handleSubmitToQueue} />}
         {activeTab === "visual" && <VisualInspector />}
         {activeTab === "knowledge" && <KnowledgeBase />}
@@ -61,15 +61,15 @@ export default function App() {
       {toastMessage && (
         <div style={{
           position: "fixed",
-          bottom: 24,
-          right: 24,
-          background: "rgba(15, 23, 42, 0.95)",
-          border: "1px solid var(--brand-emerald)",
-          boxShadow: "0 4px 20px rgba(16, 185, 129, 0.35)",
-          color: "#6EE7B7",
-          padding: "12px 20px",
-          borderRadius: 10,
-          fontSize: "0.88rem",
+          bottom: 20,
+          right: 20,
+          background: "#161A22",
+          border: "1px solid var(--border-lime)",
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.6)",
+          color: "var(--accent-lime)",
+          padding: "10px 18px",
+          borderRadius: 6,
+          fontSize: "0.82rem",
           fontWeight: 600,
           zIndex: 300,
           backdropFilter: "blur(12px)"
@@ -80,22 +80,22 @@ export default function App() {
 
       {/* Footer */}
       <footer style={{
-        borderTop: "1px solid var(--border-subtle)",
-        background: "rgba(9, 13, 22, 0.9)",
-        padding: "18px 28px",
+        borderTop: "1px solid var(--border-bronze)",
+        background: "rgba(10, 11, 14, 0.95)",
+        padding: "14px 28px",
         textAlign: "center",
-        fontSize: "0.78rem",
-        color: "var(--text-dim)"
+        fontSize: "0.75rem",
+        color: "var(--text-muted)"
       }}>
-        <div style={{ maxWidth: 1440, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div style={{ maxWidth: 1480, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <div>
-            <strong>BrandGuard</strong> — An intelligent brand-governance & pre-publish verification trust layer.
+            <strong style={{ color: "var(--text-silver)" }}>BrandGuard</strong> — Intelligent Pre-Publish Brand Governance & Verification Trust Layer.
           </div>
           <div>
-            Built for Problem Statement by <strong>Inkloom AI</strong> • Organised by <strong>We Code Coders</strong>
+            Built for Problem Statement by <strong style={{ color: "var(--accent-gold-light)" }}>Inkloom AI</strong> • Organised by <strong>We Code Coders</strong>
           </div>
           <div>
-            Developer: <strong>Varshini Uppada</strong> (Team GIRL CODER)
+            Developer: <strong style={{ color: "var(--text-warm)" }}>Varshini Uppada</strong> (Team GIRL CODER)
           </div>
         </div>
       </footer>
